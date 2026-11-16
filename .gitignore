@@ -1,0 +1,33 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Trained model checkpoints (regenerate with `python train.py`)
+*.pt
+*.pth
+
+# Logs / experiment output
+runs/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Next.js frontend (web/)
+web/node_modules/
+web/.next/
+web/next-env.d.ts
+web/.env*.local

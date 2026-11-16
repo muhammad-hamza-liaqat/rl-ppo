@@ -1,0 +1,7 @@
+# torch 2.2.x is the last release for Intel Macs and it needs numpy 1.x
+numpy<2
+torch
+gymnasium
+# web server for the live UI
+fastapi
+uvicorn[standard]
