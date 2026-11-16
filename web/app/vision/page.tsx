@@ -244,7 +244,10 @@ function VisionStepLine({
   if (frame.action === null)
     return (
       <p className="stepline" role="status">
-        {prefix}New scan. The box starts by covering the whole image.
+        {prefix}
+        {frame.source === "human"
+          ? "New scan. Your box starts small in the middle: move it with the arrow keys, resize with + and −, press Enter when it covers the bright spot."
+          : "New scan. The box starts by covering the whole image."}
       </p>
     );
   return (

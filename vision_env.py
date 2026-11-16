@@ -159,7 +159,10 @@ class VisionEnv(gym.Env):
         super().reset(seed=seed)
         self.image, self.target = make_scan(self.np_random, self.size)
         self._context = block_mean(self.image, CONTEXT).astype(np.float32)
-        self.box = (self.size / 2, self.size / 2, self.size / 2)  # start: the whole image
+        # start: the whole image (the agent always starts here). A person playing gets a
+        # smaller box in the middle via options={"start_half": 12}, so the arrows move it at once.
+        start_half = (options or {}).get("start_half", self.size / 2)
+        self.box = self._clamp(self.size / 2, self.size / 2, start_half)
         self.steps = 0
         return self._obs(), {}
 

@@ -33,6 +33,7 @@ MODEL_PATH = Path(__file__).with_name("ppo_vision.pt")
 HIDDEN = 128
 N_ACTIONS = len(ACTION_NAMES)
 UNIFORM = [1 / N_ACTIONS] * N_ACTIONS
+HUMAN_START_HALF = 12  # a person starts with a 24x24 box in the middle (the AI starts with the whole scan)
 
 
 @torch.no_grad()
@@ -228,7 +229,7 @@ class VisionSession:
     async def human_reset(self):
         self.stop()
         self.human_episodes += 1
-        obs, _ = self.env.reset()
+        obs, _ = self.env.reset(options={"start_half": HUMAN_START_HALF})
         self.human = {"obs": obs, "total": 0.0, "done": False}
         await self.send(make_frame(self.env, obs, hub.trained_net, source="human", episode=self.human_episodes,
                                    step=0, total=0.0, first=True))
