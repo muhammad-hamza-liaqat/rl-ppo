@@ -379,11 +379,11 @@ function HumanPad({
   );
 }
 
-// Measured on an Intel MacBook: about 1.3 s per update. Success after 60 / 150 / 300 updates ≈ 45% / 80% / 85%+.
+// Measured on an Intel MacBook: 150 updates took about 4½ minutes and reached 87% found.
 const LENGTHS = [
-  { updates: 60, label: "Short", time: "about 1½ minutes" },
-  { updates: 150, label: "Standard", time: "about 3½ minutes" },
-  { updates: 300, label: "Long", time: "about 7 minutes" },
+  { updates: 60, label: "Short", time: "about 2 minutes" },
+  { updates: 150, label: "Standard", time: "about 4½ minutes" },
+  { updates: 300, label: "Long", time: "about 9 minutes" },
 ];
 
 function VisionTraining({
